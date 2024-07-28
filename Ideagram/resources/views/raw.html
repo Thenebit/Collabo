@@ -1,0 +1,16 @@
+<h1>{{ $idea->ideades }}</h1>
+<p>Posted by {{ $idea->user->name }}</p>
+<p>Number of posts: {{ $idea->posts_count }}</p>
+
+<h2>Comments:</h2>
+
+@foreach ($idea->comments as $comment)
+    <p>{{ $comment->body }} (by {{ $comment->user->name }})</p>
+@endforeach
+
+<!-- Add a form to post new comments -->
+<form method="POST" action="{{ route('comment.store', $idea->id) }}">
+    @csrf
+    <textarea name="body"></textarea>
+    <button type="submit">Post Comment</button>
+</form>

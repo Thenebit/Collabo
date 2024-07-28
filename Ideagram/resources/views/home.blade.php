@@ -2,7 +2,6 @@
 
 @section('content')
     <div>     
-          
         <table class="elevated-table">
             <thead>
               <tr>
@@ -18,7 +17,10 @@
                 <tr>
                   <td>{{ $data->user->name }}</td>
                   <td>{{ $data->ideades }}</td>
-                  <td>5<button>Comment</button></td>
+                  <td>5<a href="{{ url('comment', $data->id) }}">
+                        <button>Comment</button>
+                      </a>
+                  </td>
                   <td><button>Join</button></td>
                   <td>3</td>
               </tr> 

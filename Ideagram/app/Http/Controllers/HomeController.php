@@ -46,4 +46,10 @@ class HomeController extends Controller
         // redirect or return a response
         return redirect()->back()->with('success', 'Posted created successfully!');
     }
+
+    public function comment($id)
+    {
+        $data = pudeas::find($id);
+        return view('comment', compact('data'));
+    }
 }
